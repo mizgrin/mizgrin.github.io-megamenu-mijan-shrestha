@@ -1,0 +1,489 @@
+header{
+    position: relative;
+    .announcement-tape{
+        background-color: $primary-color;
+        position: relative;
+        padding: 8px 0;
+        text-align: center;
+        span{
+            color: #fff;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px;
+            font-style: italic;
+            letter-spacing: 0.2px;
+            @media screen and (min-width: 768px) {
+                font-size: 14px;
+            line-height: 21px;
+            }
+            
+        }
+        &.hidden{
+            display: none;
+        }
+        button{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            svg{
+                width: 22px;
+                height: 23px;
+                path{
+                    stroke: #fff;
+                }
+            }
+        }
+    }
+    .bottom-header{
+        display: flex;
+        gap: auto;
+        justify-content: space-between;
+        align-items: center;
+        padding: 17px 16px;
+        position: relative;
+        height: auto;
+        @media screen and (min-width: 768px) {
+            min-height: 68px;
+            padding: 0px 37.5px;
+            justify-content: start;
+        }
+        .logo-wrap{
+           width: 60px;
+           line-height: 0;
+           @media screen and (min-width: 768px) {
+            width: 88px;
+           }
+
+            img{
+                width: 100%;
+            }
+        }
+        .main-nav{
+            &--mega-menu{
+                display: none;
+                @media screen and (min-width: 768px) {
+                    display: block;
+                    
+                }
+            }
+            ul{
+                list-style:none;
+                display: flex;
+                gap: 16px;
+                margin: 0;
+                li{
+                    button{
+                        background-color: transparent;
+                        border: none;
+                        padding: 4px 12px;
+                        border-radius: 100px;
+                        transition: all 0.3s ease-in-out;
+                        cursor: pointer;
+                        span{
+                            font-weight: 300;
+                            font-style: italic;
+                            font-size: 14px;
+                            line-height: 22px;
+                            letter-spacing: 0.1px;
+                            color: $primary-color;
+                            text-transform: capitalize;
+                          
+                        }
+                    }
+                    sup{
+                        color: $secondary-color;
+                        font-weight: 700;
+                        line-height: 22px;
+                        letter-spacing: 0.1px;
+                        font-size: 10px;
+                        font-style: italic;
+                        border-radius: 100px;
+                        padding: 2px 8px;
+                        margin-left: -10px;
+                        transition: all 0.3s linear;
+                    }
+
+                    &:hover{
+                        button.nav__btn{
+                            background-color: #ECF3FF;
+                        }
+                        sup{
+                            background-color: #ECF3FF;
+                        }
+                    } 
+                    &.menu-item-has-children{
+                        .mega-menu-wrap{
+                            position: absolute;
+                            min-height: 450px;
+                            overflow: hidden;
+                            height: 100%;
+                            top: 100%;
+                            left: 0;
+                            width: 100%;
+                            background-color: #fff;
+                            box-shadow: 10px 0px 124px 0px #00000026;
+                            padding: 20px 0;
+                            z-index: -1;
+                            opacity: 0;
+                            visibility: hidden;
+                            transition: all 0.3s linear;
+                            .mega-menu{
+                                display: flex;
+                                justify-content: space-between;
+                                
+                                align-items: center;
+                                &--three-col{
+                                    width: 100%;
+                                    justify-content: space-between;
+                                    .mega-menu__col-right{
+                                        width: auto;
+                                    }
+                                }
+                                &__col-left{
+                                    padding-left: 159px;
+                                    ul{
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 24px;
+                                        padding: 0;
+                                        margin: 0;
+                                       
+                                        .mega-menu__title{
+                                            margin-bottom: 24px;
+                                        }
+                                        li{
+                                            a{
+                                                background-color: transparent;
+                                                border: none;
+                                                text-decoration: none;
+                                                transition: all 0.3s ease-in-out;
+                                                cursor: pointer;
+                                                font-style: italic;
+                                                font-weight: 300;
+                                                font-size: 18px;
+                                                line-height: 27px;
+                                                letter-spacing: 0.3px;
+                                                color: $primary-color;
+                                                transition: all 0.3s ease-in-out;
+                                                &:hover{
+                                                    color: $secondary-color;
+                                                }
+                                            }
+                                            &.sparkling-menu{
+                                                display: flex;
+                                                align-items: center;
+                                                gap:16px;
+                                                &::after{
+                                                    content: '';
+                                                    background-image: url('../images/sparkle.svg');
+                                                    width:  19px;
+                                                    height: 17.67px;
+                                                    background-repeat: no-repeat;
+                                                    background-size:100%;                transition: all 0.3s linear;                      
+                                                }
+                                                &:hover{
+                                                    &:after{
+                                                        transform: rotateY(180deg);
+                                                    }
+                                                }
+                                            }
+                                            &.underline{
+                                                a{
+                                                    text-decoration: underline;
+                                                    font-size: 16px;
+                                                    line-height: 24px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &__title{
+                                    color: $primary-color;
+                                    font-weight: 500;
+                                }
+                                &__col-right{
+                                    width: calc(100% - 462px);
+                                    .mega-menu__header{
+                                        padding-right:42.25px ;
+                                        display: flex;
+                                            align-items: center;
+                                            justify-content: space-between;
+                                        .slick-arrows{
+                                            display: flex;
+                                            gap: 16.25px;
+                                            button{
+                                                &.slick-arrow{
+                                                     position: static;
+                                                     display: flex;
+                                                     align-items: center;
+                                                     transform: none;
+                                                     padding: 0;
+                                                     transition: all 0.3s linear;
+                                                     &:before{
+                                                        display: none;
+                                                     }
+                                                     &.slick-prev{
+                                                        transform: rotate(180deg);
+
+                                                     }
+                                                     &:hover{
+                                                        background-color: transparent;
+                                                        opacity: 0.7;
+                                                     }
+                                                     &:disabled{
+                                                        opacity: 0.2;
+                                                     }
+                                                }
+                                            }  
+                                        }
+                                    }
+                                  
+                                    .product-list {
+                                        max-width: 100%;
+                                        overflow: visible;
+                                    
+                                        &--slider {
+                                            transform: translate(12px, 0px);
+                                            .product-list__item {
+                                                
+                                                margin-right: 14px;
+                                            }
+                                        }
+                                        &--flex{
+                                            display: flex;
+                                            gap: 14px;
+                                            padding-right: 40.87px;
+                                        }
+                                        &__item {
+                                            
+                                            display: flex;
+                                           max-width: 195px;
+                                            height: 100%;
+                                            flex-direction: column;
+                                            justify-content: space-between;
+                                            padding: 10px;
+                                            background-color: #F2F2F2;
+                                            width: 100%;
+                                            figure {
+                                                height: 175px;
+                                                margin: 0;
+                                                display: flex;
+                                                align-self: center;
+                                    
+                                                img {
+                                                    max-width: 100%;
+                                                    height: auto;
+                                                    object-fit: contain;
+                                                }
+                                            }
+                                    
+                                            &__img {
+                                                img {
+                                                    max-width: 100%;
+                                                    height: auto;
+                                                }
+                                            }
+                                    
+                                            &__info {
+                                                padding: 12px 7px 2px 3px;
+                                                font-style: italic;
+                                    
+                                                .product-meta {
+                                                    span {
+                                                        font-weight: 300;
+                                                        line-height: 9px;
+                                                        font-size: 8px;
+                                                        letter-spacing: 1.6px;
+                                                        text-transform: uppercase;
+                                                        color: $text-gray;
+                                                        margin-bottom: 2px;
+                                                    }
+                                                }
+                                    
+                                                h2 {
+                                                    font-weight: 300;
+                                                    font-size: 18px;
+                                                    letter-spacing: 0.3px;
+                                                    line-height: 27px;
+                                                    margin-top: 0px; 
+                                                    margin-bottom: 0;
+                                                }
+                                                .price{
+                                                    font-size: 18px;
+                                                    line-height: 27px;
+                                                    letter-spacing: 0.3px;
+                                                    font-style: italic;
+                                                    font-weight: 300;
+                                                }
+                                            }
+                                        }
+                                    
+                                        
+                                    }
+                                                                     
+                                }
+                                &__mid{
+                                    .mega-menu-header{
+                                        .mega-menu-tab{
+                                            ul{
+                                                display: flex;
+                                                gap: 25px;
+                                                li{
+                                                    button{
+                                                        border-bottom: 1px solid transparent;
+                                                        color: $primary-color;
+                                                        transition: all 0.3s linear;
+                                                        border-radius: 0;
+                                                        font-size: 18px;
+                                                        line-height: 22px;
+                                                        font-weight: 400;
+                                                        letter-spacing: 0.1px;
+                                                        &.active,
+                                                        &:hover{
+                                                            
+                                                                border-bottom: 1px solid $secondary-color;
+                                                                color: $secondary-color;
+                                                           
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .tab-content{
+                                            .tab-pane{
+                                                display: none;
+                                                &.active{
+                                                    display: block;
+                                                }
+                                                .item-grid{
+                                                    display: grid;
+                                                    grid-template-columns: repeat(3, 1fr);
+                                                    gap: 26px;
+                                                    &__item{
+                                                        a{
+                                                        text-align: center;
+                                                        text-decoration: none;
+                                                            figure{
+                                                               transition: all 0.3s linear;
+                                                                padding: 7px;
+                                                                border: 1px solid #EEEDEB;
+                                                                border-radius: 100%;
+                                                                display: flex;
+                                                                flex-direction: column;
+                                                                justify-content: center;
+                                                                max-width: 42px;
+                                                                align-items: center;
+                                                                width: 100%;
+                                                                height: 42px;
+                                                                img{
+                                                                   
+                                                                    height: auto;
+                                                                
+                                                                }
+                                                               
+                                                            }   
+                                                            span{
+                                                                font-size: 14px;
+                                                                font-weight: 300;
+                                                                font-style: italic;
+                                                                display: block;
+                                                                line-height: 21px;
+                                                                text-align: center;
+                                                                color: $primary-color;
+                                                            }
+                                                        }
+                                                        &:hover{
+                                                            figure{
+                                                                transform: rotate(20deg);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            
+                               
+                                h3{
+                                    font-size: 28px;
+                                    line-height: 32px;  
+                                    margin: 0;
+                                    margin-bottom: 24px;
+
+                                }
+                                h4{
+                                    font-style: italic;
+                                    size: 18px;
+                                    line-height: 22px;
+                                    margin-bottom: 14px;
+                                    letter-spacing: 0.1px;
+                                }
+                            }
+                          
+                        }
+                       
+                            &:hover{
+                                &>.mega-menu-wrap{
+                                    transform: translate(0, 0);
+                                    opacity: 1;
+                                    z-index: 1;
+                                    visibility: visible
+                                }
+
+                            }
+                        
+                    }
+                }
+              
+            }
+            
+        }
+        &__menu-responsive{
+            display: none;
+            @media screen and (max-width: 768px) {
+                display: block;
+                button{
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    span{
+                        display: block;
+                        width: 24px;
+                        height: 1px;
+                        background-color: $primary-color;
+                    }
+                }
+            }
+        }
+        &.fixed-header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; 
+            background-color: #fff; 
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+            .main-nav--mega-menu{
+                .menu-item-has-children{
+
+                    .mega-menu-wrap{
+                        width: 95%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+main{
+    height: 115vh;
+}
