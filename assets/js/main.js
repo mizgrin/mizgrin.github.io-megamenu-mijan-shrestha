@@ -4,7 +4,7 @@ $(document).ready(function(){
     infinite: false,
     arrow: true, 
     speed: 500, 
-    slidesToShow: 4, 
+    slidesToShow: 1, 
     slidesToScroll: 1, 
     prevArrow: '.slick-prev',
     nextArrow: '.slick-next',
@@ -34,6 +34,41 @@ $(document).ready(function(){
 
     ]
   });
+  // $('.product-list--slider-sm').slick({
+  //   dots: false, 
+  //   infinite: false,
+  //   arrow: true, 
+  //   speed: 500, 
+  //   slidesToShow: 2, 
+  //   slidesToScroll: 1, 
+  //   prevArrow: '.slick-prev',
+  //   nextArrow: '.slick-next',
+  //   responsive: [
+  //     {
+  //       breakpoint: 768,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 1,
+  //       }
+  //     },
+      
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 3,
+  //         slidesToScroll: 1,
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 1200,
+  //       settings: {
+  //         slidesToShow: 4,
+  //         slidesToScroll: 1,
+  //       }
+  //     }
+
+  //   ]
+  // });
   //disable arrow function
   function updateArrowStates() {
     const $slider = $('.product-list--slider');
@@ -88,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Scroll-header-fixed
 document.addEventListener("DOMContentLoaded", function () {
   const bottomHeader = document.querySelector(".bottom-header");
-  console.log(bottomHeader);
+
   const headerOffset = bottomHeader.offsetTop;
 
   window.addEventListener("scroll", function () {
@@ -97,5 +132,103 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
           bottomHeader.classList.remove("fixed-header");
       }
+
+
+     
+  });
+
+
+});
+document.addEventListener("DOMContentLoaded", function () {
+  // menu-toggle
+  const menuButton = document.getElementById("menu-toggle");
+  const mainNav = document.querySelector(".main-nav");
+  const megaMenu = document.querySelector(".main-nav--mega-menu"); 
+  const subMenus = document.querySelectorAll(".sub-menu"); 
+
+  menuButton.addEventListener("click", function () {
+    
+    menuButton.classList.toggle("open");
+    mainNav.classList.toggle("open");
+    
+    
+    subMenus.forEach(subMenu => {
+      if (subMenu.classList.contains("open")) {
+        subMenu.classList.remove("open");
+      }
+    });
+
+    
+    if (megaMenu && megaMenu.classList.contains("sub-menu-open")) {
+      megaMenu.classList.remove("sub-menu-open");
+    }
+  });
+});
+
+
+const menuItems = document.querySelectorAll('.menu-item');
+
+function handleMenuToggle() {
+  
+  if (window.innerWidth < 768) {
+    menuItems.forEach(item => {
+      const button = item.querySelector('.nav__btn');
+      if (button) {
+        button.addEventListener('click', () => {
+          document.querySelectorAll('.menu-item-has-children .sub-menu').forEach(subMenu => {
+            
+            subMenu.classList.remove('open');
+          });
+
+          
+          const subMenu = item.querySelector('.sub-menu');
+       
+          
+          if (subMenu) {
+            subMenu.classList.toggle('open');
+
+            const mainNavHolder = document.querySelector('.main-nav--mega-menu');
+            if (mainNavHolder) {
+                mainNavHolder.classList.toggle('sub-menu-open');
+            }
+        }
+        });
+      }
+    });
+  }
+}
+
+
+window.addEventListener('DOMContentLoaded', handleMenuToggle);
+
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768) {
+    
+    document.querySelectorAll('.menu-item .sub-menu').forEach(subMenu => {
+      subMenu.classList.remove('open');
+    });
+  }
+});
+
+// backbutton
+document.addEventListener("DOMContentLoaded", function () {
+  
+  const backButtons = document.querySelectorAll(".back-btn");
+  const megaMenu = document.querySelector(".main-nav--mega-menu");
+
+  
+  backButtons.forEach(backButton => {
+    backButton.addEventListener("click", function () {
+      
+      const parentSubMenu = backButton.closest(".sub-menu");
+      if (parentSubMenu && parentSubMenu.classList.contains("open")) {
+        parentSubMenu.classList.remove("open");
+      }
+
+      if (megaMenu && megaMenu.classList.contains("sub-menu-open")) {
+        megaMenu.classList.remove("sub-menu-open");
+      }
+    });
   });
 });
